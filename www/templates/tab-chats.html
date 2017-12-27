@@ -1,0 +1,25 @@
+<ion-view view-title="Chats">
+  <ion-content>
+      <div style="overflow:auto;background-color:#21292f;">
+          <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+              <div style="margin-left:82%;color:#ffffff; padding:4px;">
+                  <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
+                  <a class="w3-bar-item w3-button" href="/css/default.asp" title="CSS Tutorial">FAQ's</a>
+                  <a class="w3-bar-item w3-button" href="/js/default.asp" title="JavaScript Tutorial">About</a>
+              </div>
+          </div>
+      </div>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
+        <img ng-src="{{chat.face}}">
+        <h2>{{chat.name}}</h2>
+        <p>{{chat.lastText}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

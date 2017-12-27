@@ -1,8 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     <link href="css/main.css" rel="stylesheet" />
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title></title>
 
     <link rel="manifest" href="manifest.json">
@@ -31,15 +35,46 @@
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
   </head>
-  <body ng-app="starter">
-
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
-    </ion-pane>
-  </body>
+<body ng-app="starter" ng-controller="MyCtrl">
+    <!--
+      The nav bar that will be updated as we navigate between views.
+    -->
+    <ion-header-bar class="custom bar bar-header bar-positive" style="background-color:#828282;">
+        <div class="dropdown">
+            <button type="button" class="btn btn-danger dropdown-toggle" id="menu1" data-toggle="dropdown" style="border: 2px solid white">
+                Theme Selection
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Material</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bootstrap</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Fabric</a></li>
+            </ul>
+        </div>
+        <div style="margin-left:75%;">
+            <label style="color:#ffffff;line-height:32px;">My Account:</label>
+        </div>
+        <div class="dropdown" style="margin-left:1%;">
+            <button type="button" class="btn btn-warning dropdown-toggle" id="menu1" data-toggle="dropdown" style="border: 2px solid white">
+                Localization
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">English</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Germany</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Arabic</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">French</a></li>
+            </ul>
+        </div>
+    </ion-header-bar>
+    <!--
+      The views will be rendered in the <ion-nav-view> directive below
+      Templates are in the /templates folder (but you could also
+      have templates inline in this html file if you'd like).
+    -->
+    <ion-nav-view></ion-nav-view>
+</body>
 </html>
