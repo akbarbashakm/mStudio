@@ -67,7 +67,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'ChatDetailCtrl'
         }
       }
-    })
+    }).state('iconEditor', {
+      url: '/iconEditor',
+      templateUrl: 'templates/iconEditor.html',
+      controller: 'IconEditorCtrl'
+  })
 
   .state('tab.account', {
     url: '/account',

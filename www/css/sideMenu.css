@@ -87,10 +87,11 @@ a, a:hover, a:focus {
 }
 #sidebar ul li a:hover {
     color: #7386D5;
-    background: #fff;
+    background: teal;
+    font-weight: 500;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li > a, a[aria-expanded="true"] {
     color: #fff;
     background: #6d7fcc;
 }
@@ -101,7 +102,7 @@ a[data-toggle="collapse"] {
 }
 
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
+    content: '\e258';
     display: block;
     position: absolute;
     right: 20px;
