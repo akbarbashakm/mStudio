@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
     //
     //$scope.$on('$ionicView.enter', function(e) {
     //});
-    $scope.customizeIcon = function(args) {
+    $scope.customizeIcon = function (args) {
       $state.go('iconEditor');
     }
     var request = {
@@ -28,48 +28,46 @@ angular.module('starter.controllers', [])
       dataType: 'json',
       contentType: "application/json"
     };
-
     $scope.arrBirds = new Array;
-
     $http(request)
       .success(function (jsonData) {
-        $scope.arrBirds = jsonData;
-        $scope.list = $scope.arrBirds;
+        $scope.iconsData = jsonData;
       })
       .error(function (args) {
+        console.log(args)
       });
 
     $scope.iconSelector = function (args) {
       switch (args.target.id) {
         case 'application':
-          $scope.icons = Icons.applications();
+          $scope.icons = $scope.iconsData.appIcons;
           break;
         case 'banking':
-          $scope.icons = Icons.bankings();
+          $scope.icons = $scope.iconsData.bankIcons;
           break;
         case 'characters':
-          $scope.icons = Icons.characters();
+          $scope.icons = $scope.iconsData.characters();
           break;
         case 'educattions':
-          $scope.icons = Icons.educattions();
+          $scope.icons = $scope.iconsData.educattions();
           break;
         case 'election':
-          $scope.icons = Icons.election();
+          $scope.icons = $scope.iconsData.election();
           break;
         case 'food':
-          $scope.icons = Icons.food();
+          $scope.icons = $scope.iconsData.food();
           break;
         case 'medical':
-          $scope.icons = Icons.medical();
+          $scope.icons = $scope.iconsData.medical();
           break;
         case 'sports':
-          $scope.icons = Icons.sports();
+          $scope.icons = $scope.iconsData.sports();
           break;
         case 'transporations':
-          $scope.icons = Icons.transporations();
+          $scope.icons = $scope.iconsData.transporations();
           break;
         case 'shoppings':
-          $scope.icons = Icons.shoppings();
+          $scope.icons = $scope.iconsData.shoppings();
           break;
 
       }
