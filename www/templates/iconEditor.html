@@ -1,12 +1,100 @@
-<ion-view view-title="Late">
-    <ion-content class="padding">
-        <label class="item item-input">
-            <span class="input-label">Availed Late: {{aviledLate}}</span>
-        </label>
-        <label class="item item-input">
-            <span class="input-label">Balance Late: {{balanceLate}}</span>
-        </label>
-        <button class="button button-block button-calm" ng-click="takeLate()">Avail Late</button>
+<ion-view view-title="Dashboard">
+    <ion-content>
+        <div style="overflow:auto;background-color:#21292f;">
+            <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+                <div style="margin-left:82%;color:#ffffff; padding:4px;">
+                    <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
+                    <a class="w3-bar-item w3-button" href="/css/default.asp" title="CSS Tutorial">FAQ's</a>
+                    <a class="w3-bar-item w3-button" href="/js/default.asp" title="JavaScript Tutorial">About</a>
+                </div>
+            </div>
+        </div>
+        <div class="content-container-fluid">
+            <div class="row">
+                <div class="cols-sample-area">
+                    <div id="container" style="height:400px;"></div>
+                </div>
+                <div id="sampleProperties">
+                    <div class="prop-grid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <b>X-Axis</b>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Edge Label Placement
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select name="edgesupport1" autocomplete="off" id="edgeLabelX">
+                                    <option value="0">None</option>
+                                    <option value="1">Shift</option>
+                                    <option value="2">Hide</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row" style="margin: 10px 0;">
+                            <div class="col-md-3">
+                                Label Intersect Action
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select name="selectIndex" autocomplete="off" id="optXaxisChange">
+                                    <option value="0">Rotate45</option>
+                                    <option value="1">Rotate90</option>
+                                    <option value="2">Wrap</option>
+                                    <option value="3">WrapByWord</option>
+                                    <option value="4">Trim</option>
+                                    <option value="5">Hide</option>
+                                    <option value="6" selected>MultipleRows</option>
+                                    <option value="7">None</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Tick Lines Position
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select name="xtickline" autocomplete="off" id="xticklines">
+                                    <option value="0">Outside</option>
+                                    <option value="1">Inside</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Label Position
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select name="xlabel" id="xlabels" autocomplete="off">
+                                    <option value="0">Outside</option>
+                                    <option value="1">Inside</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Enable Trim
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select name="selectIndex" autocomplete="off" id="optXaxisChange1">
+                                    <option value="0">False</option>
+                                    <option value="1">True</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Maximum Label Width
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <input type="text" id="maximumLabelWidth" style="width:100px; height:22px;" />
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
     </ion-content>
-
 </ion-view>

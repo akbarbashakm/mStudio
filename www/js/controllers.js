@@ -5,13 +5,10 @@ angular.module('starter.controllers', [])
       $state.go('tab.chats');
     }
   })
-  .controller('IconEditorCtrl', function ($scope, $ionicPopup, $ionicLoading) {
-    var lateCount = 0, temp;
-    $scope.aviledLate = lateCount;
-    temp = 2 - lateCount;
-    $scope.balanceLate = temp < 0 ? 0 : temp;
+  .controller('IconEditorCtrl', function ($scope, $ionicPopup, $ionicLoading, $rootScope) {
+    $scope.svg = $rootScope.svgData[$rootScope.svg.category][$rootScope.svg.index];
   })
-  .controller('IconsCtrl', function ($scope, Chats, Icons, $state, $http) {
+  .controller('IconsCtrl', function ($scope, Chats, Icons, $state, $http, $rootScope) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -20,6 +17,11 @@ angular.module('starter.controllers', [])
     //$scope.$on('$ionicView.enter', function(e) {
     //});
     $scope.customizeIcon = function (args) {
+      var elem = args.target.parentElement = args.target.parentElement.id.split('_');
+      $rootScope.svg = {
+        category: elem[0],
+        index: elem[1]
+      };
       $state.go('iconEditor');
     }
     var request = {
@@ -32,6 +34,7 @@ angular.module('starter.controllers', [])
     $http(request)
       .success(function (jsonData) {
         $scope.iconsData = jsonData;
+        $rootScope.svgData = jsonData;
       })
       .error(function (args) {
         console.log(args)
@@ -40,7 +43,7 @@ angular.module('starter.controllers', [])
     $scope.iconSelector = function (args) {
       switch (args.target.id) {
         case 'application':
-          $scope.icons = $scope.iconsData.appIcons;
+          $scope.icons = $scope.iconsData.application;
           break;
         case 'banking':
           $scope.icons = $scope.iconsData.bankIcons;
