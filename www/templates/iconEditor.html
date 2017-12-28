@@ -1,6 +1,6 @@
 <ion-view view-title="Dashboard">
     <ion-content>
-        <div style="overflow:auto;background-color:#21292f;">
+        <div style="overflow: hidden !important;background-color:#21292f;">
             <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
                 <div style="margin-left:82%;color:#ffffff; padding:4px;">
                     <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
@@ -9,10 +9,18 @@
                 </div>
             </div>
         </div>
-        <div class="content-container-fluid">
+        <div class="content-container-fluid" style="overflow:hidden !important">
             <div class="row">
-                <div class="cols-sample-area">
-                    <div id="container" style="height:400px;"></div>
+                <div class="cols-sample-area" style="overflow:hidden !important">
+                    <div id="container" style="margin-left: 50%; margin-top:10%">
+                        <div id="{{svg.id}}" style="width:50px; height:100px;float:left;box-sizing:border-box">
+                            <svg viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
+                              <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
+                              <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
+                                svg.path }}">
+                            </svg>
+                        </div>
+                    </div>
                 </div>
                 <div id="sampleProperties">
                     <div class="prop-grid">
