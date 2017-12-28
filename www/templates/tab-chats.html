@@ -1,25 +1,85 @@
 <ion-view view-title="Chats">
   <ion-content>
-      <div style="overflow:auto;background-color:#21292f;">
-          <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
-              <div style="margin-left:82%;color:#ffffff; padding:4px;">
-                  <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
-                  <a class="w3-bar-item w3-button" href="/css/default.asp" title="CSS Tutorial">FAQ's</a>
-                  <a class="w3-bar-item w3-button" href="/js/default.asp" title="JavaScript Tutorial">About</a>
-              </div>
-          </div>
+    <div style="overflow:auto;background-color:#21292f;">
+      <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+        <div style="margin-left:82%;color:#ffffff; padding:4px;">
+          <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
+          <a class="w3-bar-item w3-button" href="/css/default.asp" title="CSS Tutorial">FAQ's</a>
+          <a class="w3-bar-item w3-button" href="/js/default.asp" title="JavaScript Tutorial">About</a>
+        </div>
       </div>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+    </div>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
+    <div class="wrapper">
+      <!-- Sidebar Holder -->
+      <nav id="sidebar" style="overflow:hidden !important;">
+        <div class="sidebar-header">
+          <h3 style="color:#ffff !important">Icons Category</h3>
+        </div>
+        <ul class="list-unstyled" ng-click="iconSelector($event)">
+          <li class="active">
+            <a id='application' data-toggle="collapse" aria-expanded="false">Application</a>
+          </li>
+          <li>
+            <a id='banking' data-toggle="collapse" aria-expanded="false">Banking</a>
+          </li>
+          <li>
+            <a id='character' data-toggle="collapse" aria-expanded="false">Character</a>
+          </li>
+          <li>
+            <a id='education' data-toggle="collapse" aria-expanded="false">Education</a>
+          </li>
+          <li>
+            <a id='election' data-toggle="collapse" aria-expanded="false">Election</a>
+          </li>
+          <li>
+            <a id='food' data-toggle="collapse" aria-expanded="false">Food</a>
+          </li>
+          <li>
+            <a id='medical' data-toggle="collapse" aria-expanded="false">Medical</a>
+          </li>
+          <li>
+            <a id='sports' data-toggle="collapse" aria-expanded="false">Sports</a>
+          </li>
+          <li>
+            <a id='transporation' data-toggle="collapse" aria-expanded="false">Transporation</a>
+          </li>
+          <li>
+            <a id='shopping' data-toggle="collapse" aria-expanded="false">Shoppings</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- Page Content Holder -->
+      <div id="content">
+
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div style="float:left; width:100%; box-sizing:border-box">
+              <div id="metro-icon" ng-repeat="icon in icons" style="padding:20px;float:left;" id="{{icon.id}}" class='metro-icon'>
+                <div style="width:50px; height:100px;float:left;box-sizing:border-box">
+                  <svg viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
+                    <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
+                    <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
+                      icon.path }}">
+                  </svg>
+                  <div id="metro-edit" style="margin:25px 10px 10px 10px;" class="metro-edit">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 32 32">
+                      <g>
+                        <ellipse cy="16" cx="16" ry="16" rx="16" fill="#000000" />
+                        <path style="fill: #ffffff !important;" id="path1" transform="rotate(352,16,16) translate(8,8.00099935704534) scale(0.4999531551385,0.4999531551385)"
+                          d="M4.234565,23.060143L3.3980846,26.498995 5.6062109,28.670895 9.1839902,27.854559z M20.369981,6.6974076L5.4623272,21.465012 10.698205,26.536911 25.463305,11.631243z M24.268012,2.8359963L21.791127,5.2896117 26.870864,10.210285 29.195014,7.8640078z M24.290015,0L32.002999,7.8720034 10.464999,29.613993 0,31.999001 2.5469978,21.53801z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

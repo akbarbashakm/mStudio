@@ -1,0 +1,27 @@
+.metro-icon:hover {
+    border: 2px solid grey;
+    background-color: #CCCCCC;
+    box-sizing:border-box;
+}
+.metro-icon {
+    border: 2px solid transparent;
+    box-sizing:border-box;
+}
+#metro-edit {
+    cursor: pointer;
+    display: none;
+}
+#metro-edit :hover {
+    fill:red;
+}
+#metro-icon:hover  #metro-edit {
+    display: block;
+}
+.metro-icon:active {
+    border: 2px solid red;
+    background-color: #CCCCCC;   
+}
+.metro-icon-enable {
+    border: 2px solid red;
+    background-color: #CCCCCC;   
+}
