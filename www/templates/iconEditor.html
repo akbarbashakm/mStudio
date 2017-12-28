@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="cols-sample-area" style="overflow:hidden !important">
                     <div id="container" style="margin-left: 50%; margin-top:10%">
-                        <div id="{{svg.id}}" style="width:50px; height:100px;float:left;box-sizing:border-box">
+                        <div id="{{svg.id}}" class='edit-icon' style="width:100%; height:100%;float:left;box-sizing:border-box">
                             <svg viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
                                 <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
                                 <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
@@ -30,82 +30,279 @@
                     <div class="prop-grid">
                         <div class="row">
                             <div class="col-md-3">
-                                <b>X-Axis</b>
+                                Size
+                            </div>
+                            <div class="col-md-3">
+                                <div class="slidecontainer">
+                                    <input type="range" min="0" max="5" value="3" class="slider" id="size">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                Edge Label Placement
-                            </div>
-                            <div class="col-md-3 aligntop">
-                                <select name="edgesupport1" autocomplete="off" id="edgeLabelX">
-                                    <option value="0">None</option>
-                                    <option value="1">Shift</option>
-                                    <option value="2">Hide</option>
-                                </select>
+                                <h5 id='width'>Size: 48 * 48</h5>
                             </div>
                         </div>
-                        <div class="row" style="margin: 10px 0;">
+                        <br/>
+                        <div class="row">
                             <div class="col-md-3">
-                                Label Intersect Action
+                                Rotate
                             </div>
-                            <div class="col-md-3 aligntop">
-                                <select name="selectIndex" autocomplete="off" id="optXaxisChange">
-                                    <option value="0">Rotate45</option>
-                                    <option value="1">Rotate90</option>
-                                    <option value="2">Wrap</option>
-                                    <option value="3">WrapByWord</option>
-                                    <option value="4">Trim</option>
-                                    <option value="5">Hide</option>
-                                    <option value="6" selected>MultipleRows</option>
-                                    <option value="7">None</option>
-                                </select>
+                            <div class="col-md-3">
+                                <div class="slidecontainer">
+                                    <input type="range" min="1" max="360" value="0" class="slider" id="rotate">
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                Tick Lines Position
+                                <h5 id='rotateLabel'>Rotate: 0deg</h5>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                Background Color
                             </div>
                             <div class="col-md-3 aligntop">
-                                <select name="xtickline" autocomplete="off" id="xticklines">
-                                    <option value="0">Outside</option>
-                                    <option value="1">Inside</option>
-                                </select>
+                                <div class="element">
+                                    <input type="text" id="bpicker" />
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                Label Position
+                                Icon Color
                             </div>
                             <div class="col-md-3 aligntop">
-                                <select name="xlabel" id="xlabels" autocomplete="off">
-                                    <option value="0">Outside</option>
-                                    <option value="1">Inside</option>
-                                </select>
+                                <div class="element">
+                                    <input type="text" id="ipicker" />
+                                </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                Enable Trim
+                                Export Type:
                             </div>
                             <div class="col-md-3 aligntop">
-                                <select name="selectIndex" autocomplete="off" id="optXaxisChange1">
-                                    <option value="0">False</option>
-                                    <option value="1">True</option>
+                                <select id='exportType' class="btn btn-success">
+                                    <option value="JPEG">JPEG</option>
+                                    <option value="PNG">PNG</option>
+                                    <option value="SVG">SVG</option>
+                                    <option value="PDF">PDF</option>
                                 </select>
                             </div>
-                        </div>
+                        </div> <br/>
                         <div class="row">
                             <div class="col-md-3">
-                                Maximum Label Width
+                                Click to Export
                             </div>
                             <div class="col-md-3 aligntop">
-                                <input type="text" id="maximumLabelWidth" style="width:100px; height:22px;" />
+                                <button id='exportSVGElement' type="button" class="btn btn-danger">Export</button>
                             </div>
                         </div>
                         <br />
                     </div>
                 </div>
+                <script>
+                    jQuery(function ($) {
+                        $("#ipicker").ejColorPicker({
+                            value: "#FFFFFF", change: function (args) {
+                                var element = document.getElementsByClassName('edit-icon');
+                                var svgElement = element[0].children[0];
+                                var rectElement = svgElement.children[0];
+                                var pathElement = svgElement.children[1];
+
+                                pathElement.setAttribute('stroke', args.value);
+                            }
+                        });
+                        $("#bpicker").ejColorPicker({
+                            value: "#000000", change: function (args) {
+                                var element = document.getElementsByClassName('edit-icon');
+                                var svgElement = element[0].children[0];
+                                var rectElement = svgElement.children[0];
+                                var pathElement = svgElement.children[1];
+                                rectElement.setAttribute('fill', args.value);
+                            }
+                        });
+
+                    });
+                    document.getElementById('size').onchange = function () {
+                        var value = document.getElementById('size').value; var svgSize;
+                        var svgViewBox;
+                        var rectSize;
+                        var transform;
+                        switch (value) {
+                            case '0':
+                                svgSize = '16';
+                                svgViewBox = "0 0 16 16";
+                                rectSize = "16";
+                                transform = "rotate(352,8,8) translate(4,4.24999833106995) scale(0.25,0.25)";
+                                break;
+                            case '1':
+                                svgSize = '24';
+                                svgViewBox = "0 0 24 24";
+                                rectSize = "24";
+                                transform = "rotate(352,12,12) translate(6,6.37499749660492) scale(0.375,0.375)";
+                                break;
+                            case '2':
+                                svgSize = '32';
+                                svgViewBox = "0 0 32 32";
+                                rectSize = "32";
+                                transform = "rotate(352,16,16) translate(8,8.49999666213989) scale(0.5,0.5)";
+                                break;
+                            case '3':
+                                svgSize = '48';
+                                svgViewBox = "0 0 48 48";
+                                rectSize = "48";
+                                transform = "rotate(352,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)";
+                                break;
+                            case '4':
+                                svgSize = '128';
+                                svgViewBox = "0 0 128 128";
+                                rectSize = "128";
+                                transform = "rotate(352,64,64) translate(30,32.1249858140945) scale(2.125,2.125)";
+                                break;
+                            case '5':
+                                svgSize = '256';
+                                svgViewBox = "0 0 256 256";
+                                rectSize = "256";
+                                transform = "rotate(352,128,128) translate(59,63.3124712109566) scale(4.3125,4.3125)";
+                                break;
+                        }
+
+                        var element = document.getElementsByClassName('edit-icon');
+                        var svgElement = element[0].children[0];
+                        var rectElement = svgElement.children[0];
+                        var pathElement = svgElement.children[1];
+                        svgElement.setAttribute('width', svgSize);
+                        svgElement.setAttribute('height', svgSize);
+                        svgElement.setAttribute('viewBox', svgViewBox);
+                        rectElement.setAttribute('width', rectSize);
+                        rectElement.setAttribute('height', rectSize);
+                        pathElement.setAttribute('transform', transform);
+                        document.getElementById('width').innerHTML = 'Size: ' + svgSize + ' * ' + svgSize;
+                    }
+
+                    document.getElementById('rotate').onchange = function () {
+                        var value = document.getElementById('size').value; var svgSize;
+
+                        var rotate = document.getElementById('rotate').value;
+
+                        document.getElementById('rotateLabel').innerHTML = "Rotate: " + rotate + "deg";
+                        var svgViewBox;
+                        var rectSize;
+                        var transform;
+                        switch (value) {
+                            case '0':
+                                svgSize = '16';
+                                svgViewBox = "0 0 16 16";
+                                rectSize = "16";
+                                transform = "rotate(" + rotate + ",8,8) translate(4,4.24999833106995) scale(0.25,0.25)";
+                                break;
+                            case '1':
+                                svgSize = '24';
+                                svgViewBox = "0 0 24 24";
+                                rectSize = "24";
+                                transform = "rotate(" + rotate + ",12,12) translate(6,6.37499749660492) scale(0.375,0.375)";
+                                break;
+                            case '2':
+                                svgSize = '32';
+                                svgViewBox = "0 0 32 32";
+                                rectSize = "32";
+                                transform = "rotate(" + rotate + ",16,16) translate(8,8.49999666213989) scale(0.5,0.5)";
+                                break;
+                            case '3':
+                                svgSize = '48';
+                                svgViewBox = "0 0 48 48";
+                                rectSize = "48";
+                                transform = "rotate(" + rotate + ",24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)";
+                                break;
+                            case '4':
+                                svgSize = '128';
+                                svgViewBox = "0 0 128 128";
+                                rectSize = "128";
+                                transform = "rotate(" + rotate + ",64,64) translate(30,32.1249858140945) scale(2.125,2.125)";
+                                break;
+                            case '5':
+                                svgSize = '256';
+                                svgViewBox = "0 0 256 256";
+                                rectSize = "256";
+                                transform = "rotate(" + rotate + ",128,128) translate(59,63.3124712109566) scale(4.3125,4.3125)";
+                                break;
+                        }
+
+                        var element = document.getElementsByClassName('edit-icon');
+                        var svgElement = element[0].children[0];
+                        var rectElement = svgElement.children[0];
+                        var pathElement = svgElement.children[1];
+                        svgElement.setAttribute('width', svgSize);
+                        svgElement.setAttribute('height', svgSize);
+                        svgElement.setAttribute('viewBox', svgViewBox);
+                        rectElement.setAttribute('width', rectSize);
+                        rectElement.setAttribute('height', rectSize);
+                        pathElement.setAttribute('transform', transform);
+                    }
+
+                    document.getElementById('exportSVGElement').onclick = function exportIcon(args) {
+                        var id = document.getElementById('exportType').value;
+                        var element = document.getElementsByClassName('edit-icon');
+                        var svgElement = element[0].children[0];
+                        svgData = svgElement.outerHTML,
+                            size;
+                        switch (id) {
+                            case "SVG":
+                                svgExport(svgData);
+                                break;
+                            case "JPEG":
+                                imageExport(svgData, size, ".jpg");
+                                break;
+                            case "PNG":
+                                imageExport(svgData, size, ".png");
+                                break;
+                            case "PDF":
+                                pdfExport(svgData, size);
+                                break;
+                        }
+                    }
+                    function svgExport(svgData) {
+                        svgData = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + svgData + "</svg>";
+                        var svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+                        var svgUrl = URL.createObjectURL(svgBlob);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = svgUrl;
+                        downloadLink.download = "svgIcon.svg";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                    }
+                    function imageExport(svg, size, format) {
+                        var imgData = svgToCanvas(svg, size);
+                        var link = document.createElement('a');
+                        link.download = "imgIcon" + format;
+                        link.href = imgData;
+                        link.click();
+                    }
+                    function pdfExport(svg, size) {
+                        var imgData = svgToCanvas(svg, size);
+                        var doc = new jsPDF('p', 'pt', 'a4');
+                        doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
+                        doc.save('pdfIcon.pdf');
+                    }
+                    function svgToCanvas(svg, size) {
+                        svg = svg.replace(/\r?\n|\r/g, '').trim();
+                        var canvas = document.createElement('canvas');
+                        var context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        canvg(canvas, svg);
+
+                        return canvas.toDataURL('image/png');
+                    }
+
+
+                    $("#sampleProperties").ejPropertiesPanel();
+
+                </script>
             </div>
         </div>
     </ion-content>
