@@ -5,6 +5,22 @@ angular.module('starter.controllers', [])
       $state.go('tab.chats');
     }
   })
+
+  .controller('LibraryCtrl', function ($scope, $state) {
+    // Scope initialize
+  })
+
+  .controller('QuestionsCtrl', function ($scope, $state) {
+    // Scope initialize
+  })
+
+  .controller('AboutCtrl', function ($scope, $state) {
+    // Scope initialize
+  })
+
+  .controller('TutorialCtrl', function ($scope, $state) {
+    // Scope initialize
+  })
   .controller('IconEditorCtrl', function ($scope, $ionicPopup, $ionicLoading, $rootScope) {
     if ($rootScope.svg) {
       $scope.svg = $rootScope.svgData[$rootScope.svg.category][$rootScope.svg.index];

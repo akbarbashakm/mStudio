@@ -1,11 +1,15 @@
 <ion-view view-title="Dashboard">
     <ion-content>
-        <div style="overflow: hidden !important;background-color:#21292f;">
+        <div style="overflow:auto;background-color:#21292f;">
             <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
-                <div style="margin-left:82%;color:#ffffff; padding:4px;">
-                    <a class="w3-bar-item w3-button" href="/html/default.asp" title="HTML Tutorial">Tutorial</a>
-                    <a class="w3-bar-item w3-button" href="/css/default.asp" title="CSS Tutorial">FAQ's</a>
-                    <a class="w3-bar-item w3-button" href="/js/default.asp" title="JavaScript Tutorial">About</a>
+                <div style="color:#ffff; padding:4px; float:right; font-size:18px">
+                    <a class="w3-bar-item w3-button" href="#/tab/dash" title="HTML Tutorial">Home</a>
+                    <a class="w3-bar-item w3-button" href="#/tab/chats" title="HTML Tutorial">Icon Collections</a>
+                    <a class="w3-bar-item w3-button" href="#/iconEditor" title="HTML Tutorial">Custom Editor</a>
+                    <a class="w3-bar-item w3-button" href="#/library" title="HTML Tutorial">Download Library</a>
+                    <a class="w3-bar-item w3-button" href="#/tutorial" title="HTML Tutorial">Tutorial</a>
+                    <a class="w3-bar-item w3-button" href="#/questions" title="CSS Tutorial">FAQ's</a>
+                    <a class="w3-bar-item w3-button" href="#/about" title="JavaScript Tutorial">About</a>
                 </div>
             </div>
         </div>
@@ -15,8 +19,8 @@
                     <div id="container" style="margin-left: 50%; margin-top:10%">
                         <div id="{{svg.id}}" style="width:50px; height:100px;float:left;box-sizing:border-box">
                             <svg viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
-                              <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
-                              <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
+                                <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
+                                <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
                                 svg.path }}">
                             </svg>
                         </div>
