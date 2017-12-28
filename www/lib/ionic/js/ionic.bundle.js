@@ -21707,7 +21707,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
             nodeLinkFn(childLinkFn, childScope, node, $rootElement, childBoundTranscludeFn);
 
-          } else if (childLinkFn) {
+          } else if (childLinkFn && node && node.childNodes) {
             childLinkFn(scope, node.childNodes, undefined, parentBoundTranscludeFn);
           }
         }

@@ -22,6 +22,10 @@ angular.module('starter.controllers', [])
     // Scope initialize
   })
   .controller('IconEditorCtrl', function ($scope, $ionicPopup, $ionicLoading, $rootScope) {
+    
+    $scope.back = function() {
+      window.history.back();
+    }
     if ($rootScope.svg) {
       $scope.svg = $rootScope.svgData[$rootScope.svg.category][$rootScope.svg.index];
     } else {
@@ -50,7 +54,21 @@ angular.module('starter.controllers', [])
     //
     //$scope.$on('$ionicView.enter', function(e) {
     //});
+    $scope.search = function (args) {
+      var icon = [];
+      var value = args.target.value;
+      if(value !== '') {
+        for (var i = 0; i < $scope.icons.length; i++) {
+          if ($scope.icons[i].tag.indexOf(value) > -1) {
+            icon.push($scope.icons[i]);
+          }
+        }
+        $scope.icons = icon;
+      }
+      
+    }
     $scope.customizeIcon = function (args) {
+
       var elem = args.target.parentElement = args.target.parentElement.id.split('_');
       $rootScope.svg = {
         category: elem[0],
@@ -69,6 +87,7 @@ angular.module('starter.controllers', [])
       .success(function (jsonData) {
         $scope.iconsData = jsonData;
         $rootScope.svgData = jsonData;
+        $scope.icons = $scope.iconsData.application;
       })
       .error(function (args) {
         console.log(args)
@@ -80,31 +99,31 @@ angular.module('starter.controllers', [])
           $scope.icons = $scope.iconsData.application;
           break;
         case 'banking':
-          $scope.icons = $scope.iconsData.bankIcons;
+          $scope.icons = $scope.iconsData.banking;
           break;
         case 'characters':
           $scope.icons = $scope.iconsData.characters();
           break;
-        case 'educattions':
-          $scope.icons = $scope.iconsData.educattions();
+        case 'educations':
+          $scope.icons = $scope.iconsData.education;
           break;
         case 'election':
-          $scope.icons = $scope.iconsData.election();
+          $scope.icons = $scope.iconsData.election;
           break;
         case 'food':
-          $scope.icons = $scope.iconsData.food();
+          $scope.icons = $scope.iconsData.food;
           break;
         case 'medical':
-          $scope.icons = $scope.iconsData.medical();
+          $scope.icons = $scope.iconsData.medical;
           break;
         case 'sports':
-          $scope.icons = $scope.iconsData.sports();
+          $scope.icons = $scope.iconsData.sports;
           break;
         case 'transporations':
-          $scope.icons = $scope.iconsData.transporations();
+          $scope.icons = $scope.iconsData.transportation;
           break;
         case 'shoppings':
-          $scope.icons = $scope.iconsData.shoppings();
+          $scope.icons = $scope.iconsData.shopping;
           break;
 
       }

@@ -33,6 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
       // setup an abstract state for the tabs directive
       .state('tab', {
+        cache: false,
         url: '/tab',
         abstract: true,
         templateUrl: 'templates/tabs.html'
@@ -42,6 +43,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
       .state('tab.dash', {
         url: '/dash',
+        cache: false,
         views: {
           'tab-dash': {
             templateUrl: 'templates/tab-dash.html',
@@ -52,6 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
       .state('tab.chats', {
         url: '/chats',
+        cache: false,
         views: {
           'tab-chats': {
             templateUrl: 'templates/tab-chats.html',
@@ -61,6 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       })
       .state('tab.chat-detail', {
         url: '/chats/:chatId',
+        cache: false,
         views: {
           'tab-chats': {
             templateUrl: 'templates/chat-detail.html',
@@ -69,28 +73,34 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         }
       }).state('iconEditor', {
         url: '/iconEditor',
+        cache: false,
         templateUrl: 'templates/iconEditor.html',
         controller: 'IconEditorCtrl'
       }).state('library', {
         url: '/library',
+        cache: false,
         templateUrl: 'templates/library.html',
         controller: 'LibraryCtrl'
       }).state('tutorial', {
         url: '/tutorial',
+        cache: false,
         templateUrl: 'templates/tutorial.html',
         controller: 'TutorialCtrl'
       }).state('questions', {
         url: '/questions',
+        cache: false,
         templateUrl: 'templates/questions.html',
         controller: 'QuestionsCtrl'
       }).state('about', {
         url: '/about',
+        cache: false,
         templateUrl: 'templates/about.html',
         controller: 'AboutCtrl'
       })
 
       .state('tab.account', {
         url: '/account',
+        cache: false,
         views: {
           'tab-account': {
             templateUrl: 'templates/tab-account.html',
