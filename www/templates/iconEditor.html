@@ -1,22 +1,22 @@
 <ion-view view-title="Dashboard">
     <ion-content>
-        <div ng-controller="IconEditorCtrl" style="overflow:auto;background-color:#21292f;">
-            <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+        <div ng-controller="IconEditorCtrl" style="overflow:auto;">
+            <div class="w3-bar w3-left" style="width: 100%; overflow: hidden; height: 48px; background-image: url('../img/Background/IMG_319736.jpg');">
                 <div style="color:#ffff; padding:4px; float:right; font-size:18px">
-                    <a class="w3-bar-item w3-button" href="#/tab/dash" title="HTML Tutorial">Home</a>
-                    <a class="w3-bar-item w3-button" href="#/tab/chats" title="HTML Tutorial">Icon Collections</a>
-                    <a class="w3-bar-item w3-button" href="#/iconEditor" title="HTML Tutorial">Custom Editor</a>
-                    <a class="w3-bar-item w3-button" href="#/library" title="HTML Tutorial">Download Library</a>
-                    <a class="w3-bar-item w3-button" href="#/tutorial" title="HTML Tutorial">Tutorial</a>
-                    <a class="w3-bar-item w3-button" href="#/questions" title="CSS Tutorial">FAQ's</a>
-                    <a class="w3-bar-item w3-button" href="#/about" title="JavaScript Tutorial">About</a>
+                    <a  id="text1" class="w3-bar-item w3-button" href="#/tab/dash" >Home</a>
+                    <a  id="text2"class="w3-bar-item w3-button" href="#/tab/chats" >Icon Collections</a>
+                    <a  id="text3"class="w3-bar-item w3-button" href="#/customEditor">Custom Editor</a>
+                    <a id="text4" class="w3-bar-item w3-button" href="#/library" >Download Library</a>
+                    <a  id="text5"class="w3-bar-item w3-button" href="#/tutorial">Tutorial</a>
+                    <a  id="text6"class="w3-bar-item w3-button" href="#/questions">FAQ's</a>
+                    <a  id="text7"class="w3-bar-item w3-button" href="#/about">About</a>
                 </div>
             </div>
         </div>
         <div class="content-container-fluid" style="overflow:hidden !important">
             <div class="row">                    
-                <div class="cols-sample-area" style="overflow:hidden !important">
-                    <button ng-click='back()' class="btn btn-success" onclick="goBack()">Go Back</button>
+                <div class="cols-sample-area" style="overflow:hidden !important; background-image: url('../img/Background/paper-svg-16.png'); background-color:rgba(0,0,0,0.6) !important; background-size:50%100%;">
+                    <button ng-click='back()' class="btn btn-success" style="background-color:black !important; border-color:black !important; float:right; margin-top: -10px" onclick="goBack()">Back</button>
                     <div id="container" style="margin-left: 50%; margin-top:10%">
                             
                         <div id="{{svg.id}}" class='edit-icon' style="width:100%; height:100%;float:left;box-sizing:border-box">
@@ -28,42 +28,48 @@
                         </div>
                     </div>
                 </div>
-                <div id="sampleProperties">
+                <div id="sampleProperties" style="background:rgba(0,0,0,0.6); color:white !important">
                     <div class="prop-grid">
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="color:white">
                                 Size
                             </div>
                             <div class="col-md-3">
                                 <div class="slidecontainer">
-                                    <input type="range" min="0" max="5" value="3" class="slider" id="size">
+                                    <input type="range" min="0" max="5" value="3" class="slider" id="size" style="visibility:visible !important">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <h5 id='width'>Size: 48 * 48</h5>
+                               
+                            </div>
+                            <div class="col-md-3">
+                                <h5 id='width' style="color:white">48 * 48</h5>
                             </div>
                         </div>
-                        <br/>
+                        <br />
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="color:white;">
                                 Rotate
                             </div>
                             <div class="col-md-3">
                                 <div class="slidecontainer">
-                                    <input type="range" min="1" max="360" value="0" class="slider" id="rotate">
+                                    <input type="range" min="1" max="360" value="0" class="slider" id="rotate" style="visibility:visible !important">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-3">
-                                <h5 id='rotateLabel'>Rotate: 0deg</h5>
+                               
+                            </div>
+                            <div class="col-md-3" style="margin-top:20px">
+                                <h5 id='rotateLabel' style="color:white">0 deg</h5>
                             </div>
                         </div>
-                        <br/>
+                        <br />
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="color:white">
                                 Background Color
                             </div>
                             <div class="col-md-3 aligntop">
@@ -73,7 +79,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-3" style="color:white">
                                 Icon Color
                             </div>
                             <div class="col-md-3 aligntop">
@@ -83,24 +89,24 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-3">
-                                Export Type:
+                            <div class="col-md-3" style="color:white">
+                                Save as
                             </div>
                             <div class="col-md-3 aligntop">
-                                <select id='exportType' class="btn btn-success">
+                                <select id='exportType' style="background-color:grey !important; border-color:black !important" class="btn btn-success">
                                     <option value="JPEG">JPEG</option>
                                     <option value="PNG">PNG</option>
                                     <option value="SVG">SVG</option>
                                     <option value="PDF">PDF</option>
                                 </select>
                             </div>
-                        </div> <br/>
+                        </div> <br />
                         <div class="row">
-                            <div class="col-md-3">
-                                Click to Export
+                            <div class="col-md-3" style="color:white">
+                                Download image
                             </div>
                             <div class="col-md-3 aligntop">
-                                <button id='exportSVGElement' type="button" class="btn btn-danger">Export</button>
+                                <button id='exportSVGElement' type="button" style="background-color:grey !important; border-color:black !important" class="btn btn-danger">Download</button>
                             </div>
                         </div>
                         <br />
@@ -183,7 +189,7 @@
                         rectElement.setAttribute('width', rectSize);
                         rectElement.setAttribute('height', rectSize);
                         pathElement.setAttribute('transform', transform);
-                        document.getElementById('width').innerHTML = 'Size: ' + svgSize + ' * ' + svgSize;
+                        document.getElementById('width').innerHTML = svgSize + ' * ' + svgSize;
                     }
 
                     document.getElementById('rotate').onchange = function () {
@@ -191,7 +197,7 @@
 
                         var rotate = document.getElementById('rotate').value;
 
-                        document.getElementById('rotateLabel').innerHTML = "Rotate: " + rotate + "deg";
+                        document.getElementById('rotateLabel').innerHTML = rotate + " deg";
                         var svgViewBox;
                         var rectSize;
                         var transform;
@@ -300,11 +306,21 @@
 
                         return canvas.toDataURL('image/png');
                     }
-
-
                     $("#sampleProperties").ejPropertiesPanel();
 
                 </script>
+                <style>
+                    .cols-prop-area, .content-container-fluid {
+                        background: rgba(0, 0, 0, 0.6) !important;
+                    }
+
+                    .heading {
+                        color: white !important;
+                    }
+
+               
+                </style>
+
             </div>
         </div>
     </ion-content>

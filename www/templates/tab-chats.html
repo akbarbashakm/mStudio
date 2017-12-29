@@ -1,15 +1,15 @@
 <ion-view view-title="Chats">
-  <ion-content>
-    <div style="overflow:auto;background-color:#21292f;">
+  <ion-content style="background-image: url('../img/Background/IMG_319736.jpg');">
+    <div style="overflow: auto; background-image: url('../img/Background/IMG_319736.jpg'); ">
       <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
-        <div style="color:#ffff; padding:4px; float:right; font-size:18px">
-          <a class="w3-bar-item w3-button" href="#/tab/dash" title="HTML Tutorial">Home</a>
-          <a class="w3-bar-item w3-button" href="#/tab/chats" title="HTML Tutorial">Icon Collections</a>
-          <a class="w3-bar-item w3-button" href="#/iconEditor" title="HTML Tutorial">Custom Editor</a>
-          <a class="w3-bar-item w3-button" href="#/library" title="HTML Tutorial">Download Library</a>
-          <a class="w3-bar-item w3-button" href="#/tutorial" title="HTML Tutorial">Tutorial</a>
-          <a class="w3-bar-item w3-button" href="#/questions" title="CSS Tutorial">FAQ's</a>
-          <a class="w3-bar-item w3-button" href="#/about" title="JavaScript Tutorial">About</a>
+        <div style="color:white; padding:4px; float:right; font-size:18px">
+          <a id="text12" class="w3-bar-item w3-button" href="#/tab-dash.html">Home</a>
+            <a id="text13" class="w3-bar-item w3-button" href="#/tab/chats"  style="text-decoration:underline;">Icon Collections</a>
+          <a id="text14" class="w3-bar-item w3-button" href="#/customEditor" >Custom Editor</a>
+          <a  id="text15"class="w3-bar-item w3-button" href="#/library" >Download Library</a>
+          <a id="text16" class="w3-bar-item w3-button" href="#/tutorial" >Tutorial</a>
+          <a id="text17" class="w3-bar-item w3-button" href="#/questions">FAQ's</a>
+          <a id="text18"class="w3-bar-item w3-button" href="#/about">About</a>
         </div>
       </div>
     </div>
@@ -17,39 +17,39 @@
     <div class="wrapper">
       <!-- Sidebar Holder -->
       <nav id="sidebar" style="overflow:hidden !important;">
-        <div class="sidebar-header">
-          <h3 style="color:#ffff !important">Icons Category</h3>
+        <div class="sidebar-header" style="background: rgba(0, 0, 0, 0.5) !important">
+          <h3 style="color:White !important" id="text19">Icons Category</h3>
         </div>
-        <ul class="list-unstyled" ng-click="iconSelector($event)">
-          <li class="active">
-            <a id='application' data-toggle="collapse" aria-expanded="false">Application</a>
+        <ul class="list-unstyled" ng-click="iconSelector($event)" style="background:rgba(0, 0, 0, 0.5) !important">
+            <li class="active">
+            <a id='application'  class="text20" data-toggle="collapse" aria-expanded="false">Application</a>
           </li>
           <li>
-            <a id='banking' data-toggle="collapse" aria-expanded="false">Banking</a>
+            <a id='banking' class="text21" data-toggle="collapse" aria-expanded="false">Banking</a>
           </li>
           <li>
-            <a id='characters' data-toggle="collapse" aria-expanded="false">Character</a>
+            <a id='people' class="text22" data-toggle="collapse" aria-expanded="false">People</a>
           </li>
           <li>
-            <a id='educations' data-toggle="collapse" aria-expanded="false">Education</a>
+            <a id='educations'class="text23" data-toggle="collapse" aria-expanded="false">Education</a>
           </li>
           <li>
-            <a id='election' data-toggle="collapse" aria-expanded="false">Election</a>
+            <a id='election'class="text24" data-toggle="collapse" aria-expanded="false">Election</a>
           </li>
           <li>
-            <a id='food' data-toggle="collapse" aria-expanded="false">Food</a>
+            <a id='food'class="text25" data-toggle="collapse" aria-expanded="false">Food</a>
           </li>
           <li>
-            <a id='medical' data-toggle="collapse" aria-expanded="false">Medical</a>
+            <a id='medical'class="text26" data-toggle="collapse" aria-expanded="false">Medical</a>
           </li>
           <li>
-            <a id='sports' data-toggle="collapse" aria-expanded="false">Sports</a>
+            <a id='sports' class="text27"data-toggle="collapse" aria-expanded="false">Sports</a>
           </li>
           <li>
-            <a id='transporations' data-toggle="collapse" aria-expanded="false">Transporation</a>
+            <a id='transporations'class="text28" data-toggle="collapse" aria-expanded="false">Transporation</a>
           </li>
           <li>
-            <a id='shoppings' data-toggle="collapse" aria-expanded="false">Shoppings</a>
+            <a id='shoppings'class="text29" data-toggle="collapse" aria-expanded="false">Shoppings</a>
           </li>
 
         </ul>
@@ -58,18 +58,24 @@
       <!-- Page Content Holder -->
       <div id="content">
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default" style="background-color:rgba(0, 0, 0, 0.6) !important">
           <div class="container-fluid">
-              <input type="text" name="search" ng-blur="search($event)" placeholder="Search..">
+              <div style="float:right; width:350px !important"> 
+                  <input type="text" id="search" placeholder="Example - 'volume'"  style="width:200px !important; float:left">
+                  <button type="button" class="btn btn-success" ng-click="submit()"   style=" margin-left: 5px; float:left; background-color:grey; border-color:black">Search</button>                  
+                  <button type="button" ng-hide="hide" class="btn btn-danger" ng-click="reset()" style=" margin-left:5px; float:left; background-color:grey; border-color:black">Reset</button> &nbsp;
+
+              </div>
+              
             <div style="float:left; width:100%; box-sizing:border-box">
-              <div id="metro-icon" ng-repeat="icon in icons" style="padding:20px;float:left;" id="{{icon.id}}" class='metro-icon'>
-                <div style="width:50px; height:100px;float:left;box-sizing:border-box">
-                  <svg viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
+              <div id="metro-icon" ng-repeat="icon in icons" title="{{icon.name}}" style="padding:20px;float:left;" id="{{icon.id}}" class='metro-icon'>
+                <div style="width:50px; height:85px;float:left;box-sizing:border-box">
+                  <svg viewBox="0 0 48 48" height="48" width="48" stroke="white" style="margin:0px 0px 0px 0px">
                     <rect xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
                     <path Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)  " Fill="#FFFFFFFF" d="{{
                       icon.path }}">
                   </svg>
-                  <div id="metro-edit" style="margin:25px 10px 10px 10px;" class="metro-edit" ng-click="customizeIcon($event)">
+                  <div id="metro-edit" style="margin:10px 10px 10px 10px;" class="metro-edit" ng-click="customizeIcon($event)">
                     <svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 32 32">
                       <g id="{{icon.id}}">
                         <ellipse cy="16" cx="16" ry="16" rx="16" fill="#000000" />
@@ -86,5 +92,11 @@
         </nav>
       </div>
     </div>
+      <style>
+          .metro-icon:hover{
+              background-color: rgba(255,255,255,0.5) !important;
+              border-color: black !important;
+          }
+          </style>
   </ion-content>
 </ion-view>

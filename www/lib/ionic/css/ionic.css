@@ -6771,6 +6771,7 @@ button.item.item-button-right {
  */
 .slider {
   position: relative;
+  visibility: hidden;
   overflow: hidden; }
 
 .slider-slides {

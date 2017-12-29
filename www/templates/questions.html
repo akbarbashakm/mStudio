@@ -1,18 +1,94 @@
 <ion-view view-title="Library">
-  <ion-content>
-    <div style="overflow:auto;background-color:#21292f;">
+  <ion-content style="background-image: url('../img/Background/IMG_319736.jpg');">
+    <div style="overflow: auto;">
       <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
-        <div style="color:#ffff; padding:4px; float:right; font-size:18px">
-          <a class="w3-bar-item w3-button" href="#/tab/dash" title="HTML Tutorial">Home</a>
-          <a class="w3-bar-item w3-button" href="#/tab/chats" title="HTML Tutorial">Icon Collections</a>
-          <a class="w3-bar-item w3-button" href="#/iconEditor" title="HTML Tutorial">Custom Editor</a>
-          <a class="w3-bar-item w3-button" href="#/library" title="HTML Tutorial">Download Library</a>
-          <a class="w3-bar-item w3-button" href="#/tutorial" title="HTML Tutorial">Tutorial</a>
-          <a class="w3-bar-item w3-button" href="#/questions" title="CSS Tutorial">FAQ's</a>
-          <a class="w3-bar-item w3-button" href="#/about" title="JavaScript Tutorial">About</a>
+        <div style="color:#ffff; padding:4px; float:right; font-size:18px; color:white">
+           <a  id="text1" class="w3-bar-item w3-button" href="#/tab/dash" >Home</a>
+                    <a  id="text2"class="w3-bar-item w3-button" href="#/tab/chats" >Icon Collections</a>
+                    <a  id="text3"class="w3-bar-item w3-button" href="#/customEditor">Custom Editor</a>
+                    <a id="text4" class="w3-bar-item w3-button" href="#/library" >Download Library</a>
+                    <a  id="text5"class="w3-bar-item w3-button" href="#/tutorial" >Tutorial</a>
+            <a id="text6" class="w3-bar-item w3-button" href="#/questions" style="text-decoration:underline;">FAQ's</a>
+                    <a  id="text7"class="w3-bar-item w3-button" href="#/about">About</a>
         </div>
       </div>
     </div>
-    </div>
+    
+          <div id="multiAccordion" style="width: 500px; padding-top:50px; align-content:center; margin:auto">
+              <h3>
+                  <a href="#">What is Metro 2.0?</a>
+              </h3>
+              <div>
+                 <span> Metro 2.0 is a website, which is going to be used widely for downloading the desired icons and for customizing it. Also we have planned to export this as a standalone plug-in for using it along with Syncfusion EJ Web controls.
+                  </span>
+                  <span> To be more clear, we will export all the icons as SVG path in a JS file. The user refer this file in html page and can use the desired icons. </span>
+              </div>
+              <h3>
+                  <a href="#">How does this differ from other icon editors?</a>
+              </h3>
+              <div>
+                  <span>
+                      The Metro 2.0 is developed as Web Application using ionic and angular it can be run widely in both deskto and mobile devices.
+                  </span>
+                  <span> Both android and windows phones supports metro 2.0.It provides extra feature of downloading the desired icons as separate widget and downloading them .
+                      </span>
+                 
+              </div>
+              <h3>
+                  <a href="#">What are the advantages over Metro Studio?</a>
+              </h3>
+              <div>
+                 <span>The Metro 2.0 is Web Application and it supports in all the mobile devices.The Metro 2.0 provides options for creating the images and loading the icons and downloading them 
+                  </span>
+                  <span>
+                      The Metro 2.0 provides the creation of custom widgets and downloading them as the packages
+                  </span>
+              </div>
+              <h3>
+                  <a href="#">What are the modules present it it?</a>
+              </h3>
+              <div>
+                  The Metro 2.0 consists of the below modules 
+                  <ul>
+                 <li> Icon collections</li>
+                  <li>Editing the icons </li>
+                  <li>Custom Editor</li>
+                  <li>Download plugin </li>
+                      </ul>
+              </div>
+              <h3>
+                  <a href="#">What are the formats supported for download?</a>
+              </h3>
+              <div>
+                 The formats supported as JPEG,PNG,PDF and SVG formats
+              </div>
+              <h3>
+                  <a href="#">How to use it as a library?</a>
+              </h3>
+              <div>
+                 When the button is clicked the icons are downloaded as package.The icons can be customized and then downloaded.
+                 The Downloaded icons can also be exported to the required formats.
+              </div>
+          </div>
+      <script type="text/javascript" class="jsScript">
+          $(function () {
+            // declaration
+            $("#multiAccordion").ejAccordion({ enableMultipleOpen: true });
+        });
+      </script>
+      <style>
+          .e-acrdn .e-select:hover {
+              background: grey;
+          }
+
+          .e-acrdn .e-select.e-active, .e-acrdn .e-disable.e-active.e-select:hover a, .e-acrdn .e-disable.e-active.e-select:hover {
+              background: black;
+          }
+
+          .e-select .e-active:hover{
+              background: grey;
+          }
+      </style>
+
   </ion-content>
 </ion-view>

@@ -1,17 +1,79 @@
 <ion-view view-title="Library">
-        <ion-content>
-          <div style="overflow:auto;background-color:#21292f;">
-            <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">      
-              <div style="color:#ffff; padding:4px; float:right; font-size:18px">
-                <a class="w3-bar-item w3-button" href="#/tab/dash" title="HTML Tutorial">Home</a>
-                <a class="w3-bar-item w3-button" href="#/tab/chats" title="HTML Tutorial">Icon Collections</a>
-                <a class="w3-bar-item w3-button" href="#/iconEditor" title="HTML Tutorial">Custom Editor</a>
-                <a class="w3-bar-item w3-button" href="#/library" title="HTML Tutorial">Download Library</a>
-                <a class="w3-bar-item w3-button" href="#/tutorial" title="HTML Tutorial">Tutorial</a>
-                <a class="w3-bar-item w3-button" href="#/questions" title="CSS Tutorial">FAQ's</a>
-                <a class="w3-bar-item w3-button" href="#/about" title="JavaScript Tutorial">About</a>
+    <ion-content style="background-image: url('../img/Background/IMG_319736.jpg');">
+        <div style="overflow: auto;">
+            <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+                <div style="color:#ffff; padding:4px; float:right; font-size:18px; color:white">
+                    <a class="w3-bar-item w3-button" href="#/tab/dash">Home</a>
+                    <a class="w3-bar-item w3-button" href="#/tab/chats">Icon Collections</a>
+                    <a class="w3-bar-item w3-button" href="#/customEditor">Custom Editor</a>
+                    <a class="w3-bar-item w3-button" href="#/library">Download Library</a>
+                    <a class="w3-bar-item w3-button" href="#/tutorial">Tutorial</a>
+                    <a class="w3-bar-item w3-button" href="#/questions">FAQ's</a>
+                    <a class="w3-bar-item w3-button" href="#/about" style="text-decoration:underline;">About</a>
+                </div>
             </div>
+        </div>
+        <div style="align-content:center; text-align:center; background:rgba(0,0,0,0.6); padding-top:30px;">
+        <h2 style="color:white">
+            Credits
+        </h2>
+            <ul style="color:white">
+                <li>Canvg JS - Used for converting SVG to image files</li>
+                <li>Dom-to-image - Used for converting HTML to HTML5 Canvas</li>
+                <li>Jspdf - Used for converting SVG to PDF</li>
+                <li>Metro studio - Used for fetching the SVG icon paths</li>
+                </ul>
+        <br/>
+            <br />
+            <br />
+        <div id="scrollTarget" style="clear:both !important; float:none !important; display:block; margin:auto;width:400px ">
+            <div class="e-tile-group">
+                <div class="e-tile-column">
+                    <div class="e-tile-small-col-4">
+                        <div id="tile1">
+                        </div>
+                        <div id="tile2">
+                        </div>
+                        <div id="tile3">
+                        </div>
+                        <div id="tile4">
+                        </div>
+                    </div>
+                    <div class="e-tile-small-col-4">
+                    <div id="tile5">
+                    </div>
+                    <div id="tile6">
+                    </div>
+                    <div id="tile7">
+                    </div>
+                    <div id="tile8">
+                    </div>
+                        </div>
+                </div>
             </div>
-          </div>
-        </ion-content>
-      </ion-view>
+        </div>
+        </div>
+        <script type="text/javascript">
+    $(function () {
+        if ((ej.browserInfo().name == "msie" && ej.browserInfo().version < 9)) {
+            $("#scrollTarget").html("Live Tile Functionality is only supported from Internet Explorer Versioned 9 and above.").css({ "font-size": "20px", "color": "red" });
+        }
+
+        $("#tile1").ejTile({ imageUrl: 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/games.png', imagePosition: "center", tileSize: "small", text: "Play" });
+        $("#tile2").ejTile({ imageUrl: 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/alerts.png', tileSize: "small" });
+        $("#tile3").ejTile({ tileSize: "small", liveTile: { updateInterval: 1000, enabled: true, type: "flip", imageUrl: ['http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/alerts.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/bing.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/camera.png'] } });
+        $("#tile4").ejTile({ tileSize: "small", liveTile: { updateInterval: 3500, enabled: true, type: "flip", imageUrl: ['http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/bing.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/camera.png'] } });
+        $("#tile5").ejTile({ tileSize: "small", liveTile: { updateInterval: 2000, enabled: true, type: "flip", imageUrl: ['http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/messages.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/bing.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/camera.png'] } });
+        $("#tile6").ejTile({ tileSize: "small", text: "Photo", imagePosition: "center", liveTile: { updateInterval: 4000, enabled: true, type: "slide", imageUrl: ['http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/pictures.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/photo_1.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/photo_2.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/pictures.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/photo_1.png'] } });
+        $("#tile7").ejTile({ imageUrl: 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/photo_2.png', tileSize: "small" });
+        $("#tile8").ejTile({ tileSize: "small", liveTile: { updateInterval: 1500, enabled: true, type: "flip", imageUrl: ['http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/alerts.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/bing.png', 'http://jsplayground.syncfusion.com/15.4.0.17/themes/web/content/images/tile/windows/camera.png'] } });
+});
+        </script>
+        <style>
+            .e-tile-imagecenter .e-image-parent, .e-tile .e-image-parent{
+                background: black;
+                border: solid 0.5px grey;
+            }
+            </style>
+    </ion-content>
+</ion-view>

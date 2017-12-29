@@ -96,6 +96,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         cache: false,
         templateUrl: 'templates/about.html',
         controller: 'AboutCtrl'
+      }).state('customEditor', {
+        url: '/customEditor',
+        cache: false,
+        templateUrl: 'templates/customEditor.html',
+        controller: 'CustomEditorCtrl'
       })
 
       .state('tab.account', {

@@ -1,0 +1,296 @@
+<ion-view view-title="Dashboard">
+    <ion-content style="background-image: url('../img/Background/IMG_319736.jpg');">
+        <div style="overflow: auto;">
+            <div class="w3-bar w3-left" style="width:100%;overflow:hidden;height:48px;">
+                <div style="color:#ffff; padding:4px; float:right; font-size:18px">
+                    <a class="w3-bar-item w3-button" href="#/tab/dash">Home</a>
+                    <a class="w3-bar-item w3-button" href="#/tab/chats">Icon Collections</a>
+                    <a class="w3-bar-item w3-button" href="#/customEditor" style="text-decoration:underline;">Custom Editor</a>
+                    <a class="w3-bar-item w3-button" href="#/library">Download Library</a>
+                    <a class="w3-bar-item w3-button" href="#/tutorial">Tutorial</a>
+                    <a class="w3-bar-item w3-button" href="#/questions">FAQ's</a>
+                    <a class="w3-bar-item w3-button" href="#/about">About</a>
+                </div>
+            </div>
+        </div>
+        <style>
+            #custom_svg {
+                position: absolute;
+                z-index: 9;
+                background-color: #f1f1f1;
+                text-align: center;
+                border: 1px solid #d3d3d3;
+            }
+
+            #custom_svg_svg,
+            #customLabel {
+                cursor: move;
+                z-index: 10;
+            }
+        </style>
+        <div ng-controller="CustomEditorCtrl" class="content-container-fluid" style="overflow:hidden !important">
+            <div class="row">
+                <div class="cols-sample-area" style="overflow: hidden !important; background-image: url('../img/Background/paper-svg-16.png'); background-color:rgba(0,0,0,0.6) !important; background-size:50%100%; ">
+                    <div id="container">
+                        <div id='customPlacement'>
+                            <div id="custom_svg" class='edit-icon' style="width:48px !important; height:48px !important;float:left;box-sizing:border-box; display: none;">
+                                <svg id="custom_svg_svg" viewBox="0 0 48 48" height="48" width="48" style="margin:0px 0px 0px 0px">
+                                    <rect id="custom_svg_rect" xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000000" />
+                                    <path id="custom_svg_path" Stretch="Fill" transform="rotate(0,24,24) translate(11,11.8124945759773) scale(0.8125,0.8125)"
+                                        Fill="#FFFFFFFF">
+                                </svg>
+                            </div>
+                            <div id='custom_label' class='edit-icon' style="height:48px !important;float:left;box-sizing:border-box; position: absolute !important">
+                                <div id="customLabel" style="font-size: 15px; font-family: Georgia"></div>
+                            </div>
+
+                            <img id="customImage" style="display:block;" />
+                        </div>
+                    </div>
+                </div>
+                <div id="samplePropertiess" style="background:rgba(0,0,0,0.6); color:white !important">
+                    <div class="prop-grid">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="color:white">Choose File</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="file" id="imageChoose" class="btn btn-default" id="file" style="width: 150px !important" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="color:white">Icon Name</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" id="iconSearch" placeholder="Ex- Volume" style="width: 150px !important" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="color:white">Text</h5>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" id="textSearch" placeholder="Place Text" style="width: 150px !important" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3" style="color:white">
+                                Font Color
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <div class="element">
+                                    <input type="text" id="bpicker" />
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3" style="color:white">
+                                Font Family
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <div class="element">
+                                    <select id='fontFamily' class="btn btn-success" style="background-color:grey; border-color:grey">
+                                        <option value="Georgia">Georgia</option>
+                                        <option value="Palatino Linotype">Palatino Linotype</option>
+                                        <option value="Book Antiqua">Book Antiqua</option>
+                                        <option value="Times New Roman">Times New Roman</option>
+                                        <option value="Arial">Arial</option>
+                                        <option value="Helvetica">Helvetica</option>
+                                        <option value="Arial Black">Arial Black</option>
+                                        <option value="Impact">Impact</option>
+                                        <option value="Lucida Console">Lucida Console</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="color:white">Save as</h5>
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <select id='exportType' class="btn btn-success" style="background-color:grey; border-color:grey">
+                                    <option value="JPEG">JPEG</option>
+                                    <option value="PNG">PNG</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="color:white">Download Image</h5>
+                            </div>
+                            <div class="col-md-3 aligntop">
+                                <button id='exportSVGElement' type="button" class="btn btn-danger" style="background-color:grey; border-color:grey">Download</button>
+                            </div>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <script>
+                    var urlObject = window.URL || window.webkitURL;
+                    $("#imageChoose").change(function (e) {
+                        var file;
+                        if ((file = this.files[0])) {
+                            img = document.getElementById('customImage');
+                            img.onerror = function () {
+                                alert("not a valid file: " + file.type);
+                            };
+                            img.src = urlObject.createObjectURL(file);
+                        }
+                    });
+                    $("#textSearch").change(function (e) {
+                        document.getElementById('customLabel').innerHTML = e.target.value;
+                        document.getElementById('customLabel').style.color = window.labelColor;
+                    });
+                    $("#iconSearch").change(function (e) {
+                        var category = [
+                            'application',
+                            'banking',
+                            'people',
+                            'education',
+                            'election',
+                            'food',
+                            'medical',
+                            'sports',
+                            'transportation',
+                            'shopping'
+                        ];
+                        var icon = [];
+                        var value = this.value;
+                        var svgData = window.svgIcons;
+                        if (value !== '') {
+                            for (var j = 0; j < category.length; j++) {
+                                for (var i = 0; i < svgData[category[j]].length; i++) {
+                                    if (svgData[category[j]][i].tag.indexOf(value) > -1) {
+                                        icon.push(svgData[category[j]][i]);
+                                    }
+                                }
+                            }
+                        }
+                        document.getElementById('custom_svg').style.display = 'block';
+                        document.getElementById('custom_svg_path').setAttribute('d', icon[0].path);
+                    });
+
+                    $("#bpicker").ejColorPicker({
+                        value: window.labelColor, change: function (args) {
+                            window.labelColor = args.value;
+                            document.getElementById('customLabel').style.color = args.value;
+                        }
+                    });
+
+                    //Make the DIV element draggagle:
+                    dragElement(document.getElementById(("custom_svg")), 'custom_svg_svg');
+                    dragElement(document.getElementById(("custom_label")), 'customLabel');
+
+                    function dragElement(elmnt, label) {
+                        var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+                        if (document.getElementById(label)) {
+                            /* if present, the header is where you move the DIV from:*/
+                            document.getElementById(label).onmousedown = dragMouseDown;
+                        } else {
+                            /* otherwise, move the DIV from anywhere inside the DIV:*/
+                            elmnt.onmousedown = dragMouseDown;
+                        }
+
+                        function dragMouseDown(e) {
+                            e = e || window.event;
+                            // get the mouse cursor position at startup:
+                            pos3 = e.clientX;
+                            pos4 = e.clientY;
+                            document.onmouseup = closeDragElement;
+                            // call a function whenever the cursor moves:
+                            document.onmousemove = elementDrag;
+                        }
+
+                        function elementDrag(e) {
+                            e = e || window.event;
+                            // calculate the new cursor position:
+                            pos1 = pos3 - e.clientX;
+                            pos2 = pos4 - e.clientY;
+                            pos3 = e.clientX;
+                            pos4 = e.clientY;
+                            // set the element's new position:
+                            elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                            elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+                        }
+
+                        function closeDragElement() {
+                            /* stop moving when mouse button is released:*/
+                            document.onmouseup = null;
+                            document.onmousemove = null;
+                        }
+                    }
+                    document.getElementById('fontFamily').onchange = function(e) {
+                        document.getElementById('customLabel').style.fontFamily = e.target.value;
+                    }
+                    document.getElementById('exportSVGElement').onclick = function exportIcon(args) {
+                        var id = document.getElementById('exportType').value;
+                        var element = document.getElementsByClassName('edit-icon');
+                        var svgElement = element[0].children[0];
+                        svgData = svgElement.outerHTML;
+                        switch (id) {
+                            case "JPEG":
+                                imageExport(svgData, ".jpg");
+                                break;
+                            case "PNG":
+                                imageExport(svgData, ".png");
+                                break;
+                        }
+                    }
+                    function svgExport(svgData) {
+                        svgData = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + svgData + "</svg>";
+                        var svgBlob = new Blob([svgData], { type: "image/svg+xml;charset=utf-8" });
+                        var svgUrl = URL.createObjectURL(svgBlob);
+                        var downloadLink = document.createElement("a");
+                        downloadLink.href = svgUrl;
+                        downloadLink.download = "svgIcon.svg";
+                        document.body.appendChild(downloadLink);
+                        downloadLink.click();
+                        document.body.removeChild(downloadLink);
+                    }
+                    function imageExport(svg, format) {
+                        domtoimage.toJpeg(document.getElementById('customPlacement'), { quality: 0.95 })
+                            .then(function (dataUrl) {
+                                var link = document.createElement('a');
+                                link.download = 'customImg' + format;
+                                link.href = dataUrl;
+                                link.click();
+                            });
+                    }
+                    function pdfExport(svg, size) {
+                        var imgData = svgToCanvas(svg, size);
+                        var doc = new jsPDF('p', 'pt', 'a4');
+                        doc.addImage(imgData, 'PNG', 40, 40, 75, 75);
+                        doc.save('pdfIcon.pdf');
+                    }
+                    function svgToCanvas(svg, size) {
+                        svg = svg.replace(/\r?\n|\r/g, '').trim();
+                        var canvas = document.createElement('canvas');
+                        var context = canvas.getContext('2d');
+                        context.clearRect(0, 0, canvas.width, canvas.height);
+                        canvg(canvas, svg);
+
+                        return canvas.toDataURL('image/png');
+                    }
+                    $("#samplePropertiess").ejPropertiesPanel();
+
+                </script>
+            </div>
+        </div>
+        <style>
+            .cols-prop-area {
+                background: rgba(0, 0, 0, 0.6) !important;
+            }
+
+            .heading {
+                color: white !important;
+            }
+        </style>
+    </ion-content>
+</ion-view>

@@ -8,6 +8,6 @@ html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 .w3-dropdown-hover.w3-mobile .w3-dropdown-content,.w3-dropdown-click.w3-mobile .w3-dropdown-content{position:relative}	
 .w3-hide-small{display:none!important}.w3-mobile{display:block;width:100%!important}.w3-bar-item.w3-mobile,.w3-dropdown-hover.w3-mobile,.w3-dropdown-click.w3-mobile{text-align:center}
 .w3-button{width:100%}}
-.w3-button:hover{color:#ffffff!important;background-color:#00aba9!important}
+.w3-button:hover{color:#ffffff!important;background-color:rgba(7, 80, 196, 0.5)!important}
 .w3-transparent,.w3-hover-none:hover{background-color:transparent!important}
 

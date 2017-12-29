@@ -12,16 +12,16 @@
     display: none;
 }
 #metro-edit :hover {
-    fill:red;
+    fill: rgba(7, 80, 196, 0.5);
 }
 #metro-icon:hover  #metro-edit {
     display: block;
 }
 .metro-icon:active {
-    border: 2px solid red;
+    border: 2px solid darkorange;
     background-color: #CCCCCC;   
 }
 .metro-icon-enable {
-    border: 2px solid red;
+    border: 2px solid darkorange;
     background-color: #CCCCCC;   
 }

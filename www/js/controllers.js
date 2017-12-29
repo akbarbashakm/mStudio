@@ -11,15 +11,97 @@ angular.module('starter.controllers', [])
   })
 
   .controller('QuestionsCtrl', function ($scope, $state) {
-    // Scope initialize
+      // Scope initialize
+      var selectedCulture, arrayName;
+      selectedCulture = $("#menu1").text().toLowerCase();
+      selectedCulture = selectedCulture.replace(/\s+/g, '');
+      switch (selectedCulture) {
+          case "english":
+              arrayName = english;
+              break;
+          case "germany":
+              arrayName = germany;
+              break;
+          case "french":
+              arrayName = french;
+              break;
+          case "arabic":
+              arrayName = arabic;
+              break;
+      }
+      for (i = 1; i < 8; i++) {
+          $("#text" + i).text(arrayName[i].text);
+      }
   })
 
   .controller('AboutCtrl', function ($scope, $state) {
-    // Scope initialize
+      // Scope initialize
+      var selectedCulture, arrayName;
+      selectedCulture = $("#menu1").text().toLowerCase();
+      selectedCulture = selectedCulture.replace(/\s+/g, '');
+      switch (selectedCulture) {
+          case "english":
+              arrayName = english;
+              break;
+          case "germany":
+              arrayName = germany;
+              break;
+          case "french":
+              arrayName = french;
+              break;
+          case "arabic":
+              arrayName = arabic;
+              break;
+      }
+      for (i = 1; i < 8; i++) {
+          $("#text" + i).text(arrayName[i].text);
+      }
   })
 
   .controller('TutorialCtrl', function ($scope, $state) {
-    // Scope initialize
+      // Scope initialize
+      var selectedCulture, arrayName;
+      selectedCulture = $("#menu1").text().toLowerCase();
+      selectedCulture = selectedCulture.replace(/\s+/g, '');
+      switch (selectedCulture) {
+          case "english":
+              arrayName = english;
+              break;
+          case "germany":
+              arrayName = germany;
+              break;
+          case "french":
+              arrayName = french;
+              break;
+          case "arabic":
+              arrayName = arabic;
+              break;
+      }
+      for (i = 1; i < 8; i++) {
+          $("#text" + i).text(arrayName[i].text);
+      }
+  })
+  .controller('CustomEditorCtrl', function ($scope, $ionicPopup, $ionicLoading, $rootScope) {
+      var selectedCulture, arrayName;
+      selectedCulture = $("#menu1").text().toLowerCase();
+      selectedCulture = selectedCulture.replace(/\s+/g, '');
+      switch (selectedCulture) {
+          case "english":
+              arrayName = english;
+              break;
+          case "germany":
+              arrayName = germany;
+              break;
+          case "french":
+              arrayName = french;
+              break;
+          case "arabic":
+              arrayName = arabic;
+              break;
+      }
+      for (i = 1; i < 8; i++) {
+          $("#text" + i).text(arrayName[i].text);
+      }
   })
   .controller('IconEditorCtrl', function ($scope, $ionicPopup, $ionicLoading, $rootScope) {
     
@@ -44,7 +126,26 @@ angular.module('starter.controllers', [])
         "id": "application_1"
       }
     }
-
+    var selectedCulture, arrayName;
+    selectedCulture = $("#menu1").text().toLowerCase();
+    selectedCulture = selectedCulture.replace(/\s+/g, '');
+    switch (selectedCulture) {
+        case "english":
+            arrayName = english;
+            break;
+        case "germany":
+            arrayName = germany;
+            break;
+        case "french":
+            arrayName = french;
+            break;
+        case "arabic":
+            arrayName = arabic;
+            break;
+    }
+    for (i = 1; i < 8; i++) {
+         $("#text" + i).text(arrayName[i].text);
+            }
   })
   .controller('IconsCtrl', function ($scope, Chats, Icons, $state, $http, $rootScope) {
     // With the new view caching in Ionic, Controllers are only called
@@ -54,18 +155,45 @@ angular.module('starter.controllers', [])
     //
     //$scope.$on('$ionicView.enter', function(e) {
     //});
-    $scope.search = function (args) {
+    $scope.hide = true;
+    $scope.submit = function () {
+      var category = [
+        'application',
+        'banking',
+        'people',
+        'education',
+        'election',
+        'food',
+        'medical',
+        'sports',
+        'transportation',
+        'shopping'
+      ];
       var icon = [];
-      var value = args.target.value;
+      var value = document.getElementById('search').value;
       if(value !== '') {
-        for (var i = 0; i < $scope.icons.length; i++) {
-          if ($scope.icons[i].tag.indexOf(value) > -1) {
-            icon.push($scope.icons[i]);
+        for (var j=0; j< category.length; j++) {
+          for (var i = 0; i < $scope.iconsData[category[j]].length; i++) {
+            if ($scope.iconsData[category[j]][i].tag.indexOf(value) > -1) {
+              icon.push($scope.iconsData[category[j]][i]);
+            }
           }
         }
-        $scope.icons = icon;
+        if (icon.length) {
+          $scope.hide = false;
+          $scope.icons = icon;
+        } else {
+          document.getElementById('search').value = '';
+        }
+        
       }
       
+    }
+
+    $scope.reset = function () {
+      document.getElementById('search').value = '';
+      $scope.icons = $scope.iconsData.application;
+      $scope.hide = true;
     }
     $scope.customizeIcon = function (args) {
 
@@ -91,9 +219,15 @@ angular.module('starter.controllers', [])
       })
       .error(function (args) {
         console.log(args)
+        $scope.icons = window.svgIcons.application;
       });
+      $scope.icons = window.svgIcons.application;
 
     $scope.iconSelector = function (args) {
+      var elements = document.getElementsByClassName('active');
+      elements[0].setAttribute('class', '');
+      args.target.parentElement.setAttribute('class', 'active');
+      $scope.iconsData = $scope.iconsData || window.svgIcons;
       switch (args.target.id) {
         case 'application':
           $scope.icons = $scope.iconsData.application;
@@ -101,8 +235,8 @@ angular.module('starter.controllers', [])
         case 'banking':
           $scope.icons = $scope.iconsData.banking;
           break;
-        case 'characters':
-          $scope.icons = $scope.iconsData.characters();
+        case 'people':
+          $scope.icons = $scope.iconsData.people;
           break;
         case 'educations':
           $scope.icons = $scope.iconsData.education;
@@ -128,6 +262,30 @@ angular.module('starter.controllers', [])
 
       }
     }
+    var selectedCulture, arrayName;
+    selectedCulture = $("#menu1").text().toLowerCase();
+    selectedCulture = selectedCulture.replace(/\s+/g, '');
+    switch (selectedCulture) {
+        case "english":
+            arrayName = english;
+            break;
+        case "germany":
+            arrayName = germany;
+            break;
+        case "french":
+            arrayName = french;
+            break;
+        case "arabic":
+            arrayName = arabic;
+            break;
+    }
+    for (i = 12; i < 30; i++) {
+        if (i <= 19)
+            $("#text" + i).text(arrayName[i].text);
+        else
+            $(".text" + i).text(arrayName[i].text);
+    }
+
     $scope.icons = Icons.applications();
   })
 
